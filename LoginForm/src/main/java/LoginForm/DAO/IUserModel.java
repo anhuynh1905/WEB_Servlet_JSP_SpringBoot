@@ -7,6 +7,7 @@ public interface IUserModel {
 	List<UserModel> findAll();
 	
 	UserModel findByID(int ID);
+	UserModel findByUsername(String username);
 	
 	void insert(UserModel user);
 }

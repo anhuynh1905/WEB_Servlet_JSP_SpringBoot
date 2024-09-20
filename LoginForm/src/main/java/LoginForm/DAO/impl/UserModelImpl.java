@@ -28,10 +28,20 @@ public class UserModelImpl implements IUserModel {
 			conn = new employeesDBConnect().connect();
 			ps = conn.prepareStatement(sql);
 			rs = ps.executeQuery();
-
+			UserModel Add = new UserModel();
 			while (rs.next()) {
-				list.add(new UserModel(rs.getString(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getString(5),
-						rs.getString(6), rs.getString(7), rs.getInt(8), rs.getInt(9), rs.getString(10)));
+				Add = new UserModel(
+						rs.getString("Username"),
+						rs.getString("Password"),
+						rs.getString("Avatar"),
+						rs.getInt("ID"),
+						rs.getString("First_name"),
+						rs.getString("Last_name"),
+						rs.getString("Email"),
+						rs.getInt("Phone_number"),
+						rs.getInt("Role_id"),
+						rs.getString("my_date"));
+				list.add(Add);
 			}
 			conn.close();
 			return list;
@@ -98,15 +108,41 @@ public class UserModelImpl implements IUserModel {
 		}
 	}
 
+	@Override
+	public UserModel findByUsername(String username) {
+		String sql = "SELECT * FROM login WHERE Username = ?";
+		try {
+			conn = new employeesDBConnect().connect();
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, username);
+			rs = ps.executeQuery();
+			while(rs.next()) {
+				UserModel user = new UserModel();
+				user.setUsername(rs.getString("Username"));
+				user.setPassword(rs.getString("Password"));
+				user.setAvatar(rs.getString("Avatar"));
+				user.setID(rs.getInt("ID"));
+				user.setFirst_name(rs.getString("First_name"));
+				user.setLast_name(rs.getString("Last_name"));
+				user.setEmail(rs.getString("Email"));
+				user.setPhone_number(rs.getInt("Phone_number"));
+				user.setRole_id(rs.getInt("Role_id"));
+				user.setMy_Date(rs.getString("my_date"));
+				return user;
+			}
+			conn.close();
+			
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
+		return null;
+	}
+	
 	public static void main(String[] args) {
 		UserModelImpl a = new UserModelImpl();
-		UserModel d = new UserModel("asustek", "Tufa15", "aura.jpg", 2332, "FPT", "SHOP", "fpt@gmail.com", 808, 3001, "2024-09-19");
-		List<UserModel> b = a.findAll();
-		for(UserModel cc : b) {
-			cc.toString();
-		}
+		UserModel b = a.findByUsername("Johnny23");
+		System.out.print(b.toString());
 		
-		System.out.println("asdf1111111");
 	}
 
 }
