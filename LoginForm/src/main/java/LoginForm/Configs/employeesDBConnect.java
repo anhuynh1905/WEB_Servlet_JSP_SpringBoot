@@ -17,11 +17,12 @@ public class employeesDBConnect {
 
 	private String connectionURL = "jdbc:mysql://" + hostName + "/" + dbName;
 
-	public Connection connect() {
+	public Connection connect() throws ClassNotFoundException {
 		// Tạo đối tượng Connection
 		Connection conn = null;
 
 		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
 			conn = DriverManager.getConnection(connectionURL, username, password);
 		} catch (SQLException e) {
 			e.printStackTrace();

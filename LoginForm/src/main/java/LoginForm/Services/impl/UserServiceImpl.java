@@ -5,7 +5,7 @@ import LoginForm.DAO.impl.UserModelImpl;
 import LoginForm.Models.UserModel;
 import LoginForm.Services.IUserService;
 
-public class UserService implements IUserService {
+public class UserServiceImpl implements IUserService {
 	IUserModel userDAO = new UserModelImpl();
 
 	@Override

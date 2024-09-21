@@ -3,13 +3,11 @@ package LoginForm.DAO.impl;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.google.protobuf.Message;
 
 import java.sql.*;
 import LoginForm.DAO.IUserModel;
 import LoginForm.Models.UserModel;
 import LoginForm.Configs.employeesDBConnect;
-import java.text.MessageFormat;
 
 public class UserModelImpl implements IUserModel {
 
