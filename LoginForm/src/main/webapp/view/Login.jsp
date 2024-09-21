@@ -21,7 +21,7 @@
 					<div class="login__field">
 						<i class="login__icon fas fa-user"></i> <input type="text"
 							name="username" class="login__input"
-							placeholder="User name / Email">
+							placeholder="Username ">
 					</div>
 					<div class="login__field">
 						<i class="login__icon fas fa-lock"></i> <input type="password"
@@ -34,7 +34,8 @@
 					<label class="button login__submit">Remember Me <input
 						type="checkbox" name="remember" checked="checked"> <span
 						class="checkmark"></span>
-					</label>
+					</label >
+					<a class="button login__submit" href="/LoginForm/reset">Forget Password</a>
 				</form>
 				<div class="social-login">
 					<div class="social-icons">

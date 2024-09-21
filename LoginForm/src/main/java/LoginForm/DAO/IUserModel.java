@@ -10,4 +10,5 @@ public interface IUserModel {
 	UserModel findByUsername(String username);
 	
 	void insert(UserModel user);
+	void change_pass(String password, int id);
 }

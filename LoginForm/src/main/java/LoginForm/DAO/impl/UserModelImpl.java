@@ -138,9 +138,25 @@ public class UserModelImpl implements IUserModel {
 	
 	public static void main(String[] args) {
 		UserModelImpl a = new UserModelImpl();
-		UserModel b = a.findByUsername("Johnny23");
-		System.out.print(b.toString());
+		a.change_pass("Anan@123", 22312);
+		System.out.print(a.findByID(22312).toString());
+	}
+
+	@Override
+	public void change_pass(String password, int id) {
+		String sql = "UPDATE login SET Password = ? WHERE ID = ?";
+		try {
+			conn = new employeesDBConnect().connect();
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, password);
+			ps.setInt(2, id);
+			ps.executeUpdate();
+			conn.close();
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
 		
 	}
+	
 
 }
