@@ -1,6 +1,7 @@
-package LoginForm.controllers.manager;
+package LoginForm.controllers.admin;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import LoginForm.Utils.Constant;
 import jakarta.servlet.ServletException;
@@ -11,14 +12,16 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
-@WebServlet(urlPatterns = {"/manager/homne"})
-public class ManagerController extends HttpServlet{
+@WebServlet(urlPatterns = { "/admin/home", "/admin/logout" })
+public class AdminController extends HttpServlet {
+
+	private static final long serialVersionUID = 1L;
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		// Get the print writer object to write into the response
-		req.getRequestDispatcher("/view/manager/home.jsp").forward(req, resp);
+		req.getRequestDispatcher("/view/admin/home.jsp").forward(req, resp);
 	}
 
 	@Override

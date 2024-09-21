@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>User home</title>
+<title>Manager home</title>
 </head>
 <body>
 	<form action="logout" method="post">
