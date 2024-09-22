@@ -36,6 +36,7 @@
 						class="checkmark"></span>
 					</label >
 					<a class="button login__submit" href="/LoginForm/reset">Forget Password</a>
+					<a class="button login__submit" href="/LoginForm/createAccount">Create new account</a>
 				</form>
 				<div class="social-login">
 					<div class="social-icons">

@@ -24,4 +24,9 @@ public class UserServiceImpl implements IUserService {
 		return userDAO.findByUsername(username);
 	}
 
+	@Override
+	public void createAccount(UserModel user) {
+		userDAO.insert(user);
+	}
+
 }
